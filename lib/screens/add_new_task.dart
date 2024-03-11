@@ -177,7 +177,9 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Task newTask = Task(type: deviceWidth , title: sad, description: description, isCompleted: isCompleted)
+                },
                 child: const Text("Save"),
               ),
             ],
