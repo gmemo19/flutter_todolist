@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todolist/constants/color.dart';
 import 'package:flutter_todolist/constants/tasktype.dart';
+import 'package:flutter_todolist/model/task.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class AddNewTaskScreen extends StatefulWidget {
-  const AddNewTaskScreen({super.key});
+  const AddNewTaskScreen({super.key, required this.addNewTask});
+  final void Function(Task newTask) addNewTask;
 
   @override
   State<AddNewTaskScreen> createState() => _AddNewTaskScreenState();
@@ -134,10 +136,10 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
                         children: [
                           const Text("Date"),
                           Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: TextField(
                               controller: dateController,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                   filled: true, fillColor: Colors.white),
                             ),
                           ),
