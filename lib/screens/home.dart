@@ -3,6 +3,7 @@ import 'package:flutter_todolist/constants/color.dart';
 import 'package:flutter_todolist/constants/tasktype.dart';
 import 'package:flutter_todolist/model/task.dart';
 import 'package:flutter_todolist/screens/add_new_task.dart';
+import 'package:flutter_todolist/service/todo_service.dart';
 import 'package:flutter_todolist/todoitem.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -59,6 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   @override
   Widget build(BuildContext context) {
+    TodoService todoService = TodoService();
+    todoService.getTodos();
     double deviceHeight = MediaQuery.of(context).size.height;
     double deviceWidth = MediaQuery.of(context).size.width;
     return MaterialApp(
@@ -149,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => AddNewTaskScreen(
-                      addNewTask: (newTask) => AddNewTask(newTask),
+                      addNewTask: (newTask) => addNewTask(newTask),
                     ),
                   ));
                 },
