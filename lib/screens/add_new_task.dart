@@ -178,7 +178,13 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Task newTask = Task(type: deviceWidth , title: sad, description: description, isCompleted: isCompleted)
+                  Task newTask = Task(
+                      type: taskType,
+                      title: titleController.text,
+                      description: descriptionController.text,
+                      isCompleted: false);
+                  widget.addNewTask(newTask);
+                  Navigator.pop(context);
                 },
                 child: const Text("Save"),
               ),

@@ -37,8 +37,10 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
   ];
 
-  void AddNewTask(Task newTask) {
-    todo.add(newTask);
+  void addNewTask(Task newTask) {
+    setState(() {
+      todo.add(newTask);
+    });
   }
 
   List<Task> completed = [
